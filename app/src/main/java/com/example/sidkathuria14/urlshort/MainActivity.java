@@ -22,7 +22,8 @@ import retrofit2.http.Query;
 
 public class MainActivity extends AppCompatActivity {
 EditText etLink;TextView tv;String link;
-    public static final String TAG = "MainActivity";
+    public static final String TAG = "url";
+    public static final String API_KEY = "AIzaSyDzvQjgYqQ0zo_okaXowxIcIN_muCkARiA";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +48,7 @@ tv = (TextView)findViewById(R.id.tv);
 
                     @Override
                     public void onResponse(Call<ShortenerModel> call, Response<ShortenerModel> response) {
-                        Log.d(TAG, "onResponse: " + "\n" + response.body().getStatus());
+                        Log.d(TAG, "onResponse: " + "\n");
                         tv.setText(response.body().getId());
                     }
 

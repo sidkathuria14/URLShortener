@@ -5,18 +5,17 @@ package com.example.sidkathuria14.urlshort.models;
  */
 
 public class ShortenerModel {
-    String id,status;
-
-    public ShortenerModel(String id, String status) {
-        this.id = id;
-        this.status = status;
-    }
+    String id,kind,longUrl;
 
     public String getId() {
         return id;
     }
 
-    public String getStatus() {
-        return status;
+    public String getKind() {
+        return kind;
+    }
+
+    public String getLongUrl() {
+        return longUrl;
     }
 }

@@ -4,9 +4,23 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.sidkathuria14.urlshort.api.UrlShortenerApi;
+import com.example.sidkathuria14.urlshort.models.ShortenerModel;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.sidkathuria14.urlshort.MainActivity.API_KEY;
+import static com.example.sidkathuria14.urlshort.MainActivity.TAG;
 
 
 /**
@@ -22,6 +36,7 @@ public class ShortenFrag extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    TextView tv;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -46,17 +61,17 @@ public class ShortenFrag extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shorten, container, false);
+        View v = inflater.inflate(R.layout.fragment_shorten, container, false);
+        tv = (TextView)v.findViewById(R.id.tv);
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
